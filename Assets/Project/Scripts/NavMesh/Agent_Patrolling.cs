@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Agent_Patrolling :MonoBehaviour {
+
+    [SerializeField] bool drawGizmos = false;
+
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] NavMeshAgent ghost;
     [SerializeField] GameObject[] waypoints;
+    [SerializeField] bool backwards;
     int patrolWP = 0;
-   [SerializeField] bool backwards;
+
+
     void Start() {
         patrolWP = Random.Range(0,waypoints.Length - 1);
 
@@ -20,14 +26,16 @@ public class Agent_Patrolling :MonoBehaviour {
     }
 
     void Update() {
-        if (!agent.pathPending && agent.remainingDistance < 0.3f) Patrol();
+        if (!ghost.pathPending && ghost.remainingDistance < 0.3f) Patrol();
+
+        agent.destination = ghost.gameObject.transform.position;
     }
 
     void Patrol() {
         if (waypoints.Length == 0)
             return;
 
-        agent.destination = waypoints[patrolWP].transform.position;
+        ghost.destination = waypoints[patrolWP].transform.position;
         if (!backwards) {
             patrolWP = (patrolWP + 1) % waypoints.Length;
         } else {
@@ -36,7 +44,13 @@ public class Agent_Patrolling :MonoBehaviour {
                 patrolWP = waypoints.Length - 1;
             }
         }
+    }
 
-
+    private void OnDrawGizmos()
+    {
+        if (drawGizmos)
+        {
+            Gizmos.DrawSphere(ghost.transform.position, 1);
+        }
     }
 }
