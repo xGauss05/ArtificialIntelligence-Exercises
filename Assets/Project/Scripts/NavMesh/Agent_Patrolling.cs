@@ -9,14 +9,23 @@ public class Agent_Patrolling : MonoBehaviour
     [SerializeField] GameObject[] waypoints;
     int patrolWP = 0;
 
-    private void Update()
+    void Start() 
+    {
+        patrolWP = Random.Range(0,waypoints.Length - 1);
+    }
+
+    void Update()
     {
         if (!agent.pathPending && agent.remainingDistance < 0.3f) Patrol();
     }
 
-    private void Patrol()
+    void Patrol()
     {
-        patrolWP = (patrolWP + 1) % waypoints.Length;
+        if (waypoints.Length == 0)
+            return;
+
         agent.destination = waypoints[patrolWP].transform.position;
+        patrolWP = (patrolWP + 1) % waypoints.Length;
+        
     }
 }
