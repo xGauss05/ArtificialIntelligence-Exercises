@@ -7,11 +7,11 @@ public class Agent_Patrolling :MonoBehaviour {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] GameObject[] waypoints;
     int patrolWP = 0;
-    bool backwards;
+   [SerializeField] bool backwards;
     void Start() {
         patrolWP = Random.Range(0,waypoints.Length - 1);
 
-        int alea = Random.Range(1,2);
+        int alea = Random.Range(0,2);
         if (alea % 2 == 0) {
             backwards = true;
         } else {
