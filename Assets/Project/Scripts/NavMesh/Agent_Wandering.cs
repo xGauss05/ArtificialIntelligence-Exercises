@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Agent_Wandering : MonoBehaviour
 {
+    [SerializeField] bool drawGizmos = false;
+
     [SerializeField] float radius = 5.0f;
     [SerializeField] float offset = 3.0f;
 
@@ -45,7 +47,10 @@ public class Agent_Wandering : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(worldTarget, 1);
-        Gizmos.DrawWireSphere(transform.position + transform.forward * offset, radius);
+        if (drawGizmos)
+        {
+            Gizmos.DrawSphere(worldTarget, 1);
+            Gizmos.DrawWireSphere(transform.position + transform.forward * offset, radius);
+        }
     }
 }
