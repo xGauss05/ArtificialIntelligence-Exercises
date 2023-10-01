@@ -7,11 +7,11 @@ Repository [link](https://github.com/xGauss05/ArtificialIntelligence-Exercises)
 
 ## Description
 GitHub repository where we save all of our Artificial Intelligence Exercises. The exercises are located in [Assets/Project/Scenes](https://github.com/xGauss05/ArtificialIntelligence-Exercises/tree/main/Assets/Project/Scenes).
+The videos related to the exercises are located in [Assets/Project/Videos](https://github.com/xGauss05/ArtificialIntelligence-Exercises/tree/main/Assets/Project/Videos).
 
 ## Exercises
 
 ### Patrolling & Wander - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/Patrol%26Wander.mp4)
-
 Create an scene with two agents:
 - The first one should use a patrolling movement using waypoints and the ghost smoothing technique. The initial point and direction should be randomly selected.
 - The second one should move using a wandering movement.
