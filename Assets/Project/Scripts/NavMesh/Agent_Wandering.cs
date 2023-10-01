@@ -20,7 +20,7 @@ public class Agent_Wandering : MonoBehaviour
         {
             NavMeshHit hit;
 
-            if (!NavMesh.SamplePosition(worldTarget, out hit, 0.5f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(worldTarget, out hit, 1.0f, NavMesh.AllAreas))
             {
                 calculateDestination();
                 return;
