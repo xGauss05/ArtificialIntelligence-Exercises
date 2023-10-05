@@ -16,3 +16,8 @@ Create an scene with two agents:
 - The first one should use a patrolling movement using waypoints and the ghost smoothing technique. The initial point and direction should be randomly selected.
 - The second one should move using a wandering movement.
 - The scene should contain some static obstacles ("not walkables").
+
+### Flocking - [Video]()
+Create a scene that simulates a flock of bees (or similar) around its hive.
+- Add some random behavior to the movement.
+- Optional: add a follow the leader component.
