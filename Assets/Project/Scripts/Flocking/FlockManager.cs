@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class FlockManager : MonoBehaviour
 {
+    [SerializeField] bool drawSpawnSphere = false;
+    [SerializeField] bool drawLimitBox = false;
+
+    [Space(20)]
+
+    public float calculationSleep = 1.5f;
+
     [SerializeField] int numFish = 10;
     [SerializeField] float spawnSpread = 2.0f;
     [SerializeField] GameObject fishPrefab;
+    public Vector3 swimLimits = Vector3.one;
+    public Vector3 randomFactor = Vector3.one;
 
     public GameObject[] allFish;
 
@@ -24,6 +33,8 @@ public class FlockManager : MonoBehaviour
 
     void Start()
     {
+        transform.position = new Vector3(0, swimLimits.y, 0);
+
         allFish = new GameObject[numFish];
         for (int i = 0; i < numFish; ++i)
         {
@@ -34,13 +45,10 @@ public class FlockManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, spawnSpread);
+        if (drawSpawnSphere)    Gizmos.DrawWireSphere(this.transform.position, spawnSpread);
+        if (drawLimitBox)       Gizmos.DrawWireCube(this.transform.position, swimLimits * 2);
     }
 }
