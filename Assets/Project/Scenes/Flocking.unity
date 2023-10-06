@@ -152,15 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03db91805af0e0b42ada41689f4fed64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawSpawnSphere: 1
+  drawSpawnSphere: 0
   drawLimitBox: 1
+  drawLeader: 1
   calculationSleep: 0.3
   numFish: 100
   spawnSpread: 2
   fishPrefab: {fileID: 2624226268400288268, guid: 4f43853240723504b9d2b45a754eb4d2,
     type: 3}
-  swimLimits: {x: 5, y: 3, z: 5}
-  randomFactor: {x: 1, y: 3, z: 1}
   allFish:
   - {fileID: 0}
   - {fileID: 0}
@@ -262,10 +261,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  swimLimits: {x: 5, y: 3, z: 5}
+  followLeader: 0
+  leaderAutoMove: 1
+  leader: {fileID: 561288907}
+  leaderStrength: 100
   maxDistanceToFindNeighbours: 12
   maxSpeed: 1.5
   minSpeed: 0.6
-  rotationSpeed: 1
+  rotationSpeed: 1.5
+  randomFactorVariation: {x: 3.5, y: 4.5, z: 3.5}
 --- !u!4 &1012167
 Transform:
   m_ObjectHideFlags: 0
@@ -279,7 +284,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &500628384
 Mesh:
@@ -287,7 +292,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-17218
+  m_Name: pb_Mesh28796
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -507,6 +512,37 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+--- !u!1 &561288907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561288908}
+  m_Layer: 0
+  m_Name: FlockingLeader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561288908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561288907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &756511841
 GameObject:
   m_ObjectHideFlags: 0
