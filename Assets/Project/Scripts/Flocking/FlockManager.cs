@@ -17,20 +17,20 @@ public class FlockManager : MonoBehaviour
     [SerializeField] int numFish = 10;
     [SerializeField] float spawnSpread = 2.0f;
     [SerializeField] GameObject fishPrefab;
-    public GameObject[] allFish;
+    public GameObject[] fishArray;
 
-    [Header("Flock Boundaries")]
-    public Vector3 swimLimits = Vector3.one;
+    [Header("Leader Parameters")]
+    public GameObject leader;
+    public bool followLeader = false;
+    public bool leaderAutoMove = false;
+    public float leaderStrength = 1.0f;
 
 
 
     [Header("Flocking Parameters")]
-    public bool followLeader = false;
-    public bool leaderAutoMove = false;
-    public GameObject leader;
-    public float leaderStrength = 1.0f;
+    public Vector3 swimLimits = Vector3.one;
 
-    [Space(20)]
+    [Space (10)]
 
     [Range(0.0f, 50.0f)]
     public float maxDistanceToFindNeighbours;
@@ -44,19 +44,21 @@ public class FlockManager : MonoBehaviour
     [Range(0.0f, 3.0f)]
     [SerializeField] public float rotationSpeed;
 
+    [Space(10)]
+
     public Vector3 randomFactorVariation = Vector3.one;
 
     void Start()
     {
         transform.position = new Vector3(0, swimLimits.y, 0);
 
-        allFish = new GameObject[numFish];
+        fishArray = new GameObject[numFish];
         for (int i = 0; i < numFish; ++i)
         {
             Vector3 position = this.transform.position + Random.insideUnitSphere * spawnSpread;
             Vector3 direction = Random.insideUnitSphere; // random vector direction
-            allFish[i] = (GameObject)Instantiate(fishPrefab, position, Quaternion.LookRotation(direction), this.transform);
-            allFish[i].GetComponent<Flock_Member>().flockManager = this;
+            fishArray[i] = (GameObject)Instantiate(fishPrefab, position, Quaternion.LookRotation(direction), this.transform);
+            fishArray[i].GetComponent<Flock_Member>().flockManager = this;
         }
     }
 
@@ -74,9 +76,9 @@ public class FlockManager : MonoBehaviour
             Vector3 pos = Vector3.zero;
             float rad = time * Mathf.Deg2Rad * 50.0f;
 
-            pos.x = Mathf.Cos(rad) * 2;
+            pos.x = Mathf.Cos(rad) * 2 + transform.position.x;
             pos.y = transform.position.y;
-            pos.z = Mathf.Sin(rad) * 2;
+            pos.z = Mathf.Sin(rad) * 2 + transform.position.z;
 
             leader.transform.position = pos;
         }

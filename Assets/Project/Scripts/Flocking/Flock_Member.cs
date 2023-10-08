@@ -25,6 +25,8 @@ public class Flock_Member : MonoBehaviour
         setRotation();
         transform.Translate(0.0f, 0.0f, Time.deltaTime * speed);
     }
+
+
     void calculateFlocking()
     {
         Vector3 cohesion = Vector3.zero;
@@ -34,7 +36,7 @@ public class Flock_Member : MonoBehaviour
 
         int neighbourAmountInReach = 0;
 
-        foreach (GameObject go in flockManager.allFish)
+        foreach (GameObject go in flockManager.fishArray)
         {
             if (go != this.gameObject)
             {
@@ -50,6 +52,7 @@ public class Flock_Member : MonoBehaviour
                 }
             }
         }
+
         if (neighbourAmountInReach > 0)
         {
             cohesion = (cohesion / neighbourAmountInReach - transform.position).normalized * speed;
@@ -81,9 +84,9 @@ public class Flock_Member : MonoBehaviour
     void setRotation()
     {
         //If outside limits
-        if (transform.position.x < -flockManager.swimLimits.x || transform.position.x > flockManager.swimLimits.x ||
+        if (transform.position.x < -flockManager.swimLimits.x + flockManager.transform.position.x || transform.position.x > flockManager.swimLimits.x + flockManager.transform.position.x ||
             transform.position.y < -flockManager.swimLimits.y + flockManager.transform.position.y || transform.position.y > flockManager.swimLimits.y + flockManager.transform.position.y ||
-            transform.position.z < -flockManager.swimLimits.z || transform.position.z > flockManager.swimLimits.z)
+            transform.position.z < -flockManager.swimLimits.z + flockManager.transform.position.z || transform.position.z > flockManager.swimLimits.z + flockManager.transform.position.z)
         {
             debugBoolisOutside = true;
 
@@ -91,7 +94,6 @@ public class Flock_Member : MonoBehaviour
             t.LookAt(flockManager.transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(t.rotation.eulerAngles), flockManager.rotationSpeed * Time.deltaTime);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-direction), flockManager.rotationSpeed * Time.deltaTime);
         }
         else
         {
