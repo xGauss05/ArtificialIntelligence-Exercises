@@ -17,7 +17,7 @@ Create an scene with two agents:
 - The second one should move using a wandering movement.
 - The scene should contain some static obstacles ("not walkables").
 
-### Flocking - [Video]()
+### Flocking - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/Flocking.mp4)
 Create a scene that simulates a flock of bees (or similar) around its hive.
 - Add some random behavior to the movement.
 - Optional: add a follow the leader component.
