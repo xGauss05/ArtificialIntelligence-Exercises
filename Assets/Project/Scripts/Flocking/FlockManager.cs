@@ -9,8 +9,6 @@ public class FlockManager : MonoBehaviour
     [SerializeField] bool drawLimitBox = false;
     [SerializeField] bool drawLeader = false;
 
-
-
     [Header("Spawn Parameters")]
     public float calculationSleep = 1.5f;
 
@@ -24,8 +22,6 @@ public class FlockManager : MonoBehaviour
     public bool followLeader = false;
     public bool leaderAutoMove = false;
     public float leaderStrength = 1.0f;
-
-
 
     [Header("Flocking Parameters")]
     public Vector3 swimLimits = Vector3.one;
