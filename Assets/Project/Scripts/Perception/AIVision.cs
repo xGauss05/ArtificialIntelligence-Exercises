@@ -7,9 +7,10 @@ public class AIVision : MonoBehaviour {
     public Camera frustum;
     public LayerMask mask;
 
-    [SerializeField] NavMeshAgent agent;
-    
+    [SerializeField] NavMeshAgent agent;    
     private bool foundTarget = false;
+    private GameObject enmityFound;
+
     [SerializeField] Vector3 localTarget;
     [SerializeField] Vector3 worldTarget;
     [SerializeField] int amountCalculations = 10;
@@ -34,9 +35,11 @@ public class AIVision : MonoBehaviour {
                     if (hit.collider.gameObject.CompareTag("Peasant")) {
                         Debug.Log("Peasant found");
                         foundTarget = true;
+                        enmityFound = col.gameObject;
+                        gameObject.SendMessageUpwards("ChaseTarget", enmityFound);
                     }
                 }
-            }
+            } 
         }
     }
 
@@ -62,10 +65,17 @@ public class AIVision : MonoBehaviour {
         agent.destination = worldTarget;
     }
 
+    void SwitchTarget(GameObject target) {
+        enmityFound = target;
+        foundTarget = true;
+    }
+
     void Update() {
         Debug.Log("AIVision update");
         if (foundTarget) {
-
+            if (!agent.pathPending) {
+                agent.destination = enmityFound.transform.position;
+            }
         } else {
             if (!agent.pathPending && agent.remainingDistance < 0.3f) {
                 Wander();

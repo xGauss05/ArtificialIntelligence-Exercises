@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1491190071273968679}
   m_Layer: 0
   m_Name: Pupil
-  m_TagString: Peasant
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5295182876679030833}
   m_Layer: 0
   m_Name: Mesh_Eye_L
-  m_TagString: Peasant
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3320899963071466835}
   m_Layer: 0
   m_Name: Mesh_Capsule
-  m_TagString: Peasant
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 2592645227332702215}
   m_Layer: 0
   m_Name: Mesh_Eye_R
-  m_TagString: Peasant
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 6328428313887175205}
   m_Layer: 0
   m_Name: Pupil
-  m_TagString: Peasant
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
