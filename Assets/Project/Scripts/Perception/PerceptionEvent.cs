@@ -9,31 +9,23 @@ public class PerceptionEvent :MonoBehaviour {
     [SerializeField] float spawnSpread = 2.0f;
     public GameObject[] zombieArray;
     [SerializeField] GameObject zombiePrefab;
-    [Space(10)]
-
-    [Header("Leader Parameters")]
-    private GameObject leader;
-
-
-    private AIVision aivision;
-
+  
     void Start() {
         zombieArray = new GameObject[numZombies];
 
         for (int i = 0; i < numZombies; ++i) {
-            
+
             Vector3 position = this.transform.position + Random.insideUnitSphere * spawnSpread;
             position.y = this.transform.position.y;
             Vector3 direction = Random.insideUnitSphere; // random vector direction
             direction.y = 0;
             zombieArray[i] = (GameObject)Instantiate(zombiePrefab,position,Quaternion.LookRotation(direction),this.transform);
         }
-
-        leader = zombieArray[0];
     }
 
     // Update is called once per frame
     void Update() {
-
+        Debug.Log("Perception event");
+        gameObject.BroadcastMessage("checkEnmities");
     }
 }

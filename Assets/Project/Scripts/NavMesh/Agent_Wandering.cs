@@ -15,8 +15,6 @@ public class Agent_Wandering :MonoBehaviour {
 
     void Update() {
         if (!agent.pathPending && agent.remainingDistance < 0.3f) {
-
-            calculateDestination();
             Wander();
         }
     }
