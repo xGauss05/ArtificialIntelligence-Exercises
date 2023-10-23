@@ -22,7 +22,7 @@ Create a scene that simulates a flock of bees (or similar) around its hive.
 - Add some random behavior to the movement.
 - Optional: add a follow the leader component.
 
-### Perception - [Video]()
+### Perception - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/Perception.mp4)
 Replicate the Zombies Scene in slide 10 of "World Interfacing & Knowledge" topic, following next constraints:
 ![image](https://github.com/xGauss05/ArtificialIntelligence-Exercises/assets/57706173/620cf695-4802-4add-8d0f-fdc346fec4b9)
 
