@@ -29,3 +29,10 @@ Replicate the Zombies Scene in slide 10 of "World Interfacing & Knowledge" topic
 - Implement the zombies with an unique prefab.
 - Use camera frustum for zombies perception.
 - Use Unity Messaging's BroadcastMessage method for communication between zombies.
+
+### Finite State Machine - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/FiniteStateMachine.mp4)
+Reproduce the robber behaviour in video of slide 9 of "Decision Making" with Finite State Machines.
+![image](https://github.com/xGauss05/ArtificialIntelligence-Exercises/assets/57706173/c24c2248-9919-4f8b-bd1b-8833a368e45a)
+
+- Option 1: use delegates 
+- Option 2: use the Unity's animation
