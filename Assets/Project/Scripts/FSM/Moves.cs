@@ -6,54 +6,68 @@ using UnityEngine.AI;
 
 public class Moves : MonoBehaviour
 {
-    GameObject[] hidingSpots;
-    GameObject policeMan;
-    Vector3 movement;
-    float acceleration;
-    Quaternion rotation;
+    [SerializeField] GameObject[] hidingSpots;
     [SerializeField] NavMeshAgent agent;
+    GameObject hidingSpot;
+    bool hasStolen = false;
+
 
     public void Hide()
     {
-        System.Func<GameObject, float> distance =
-                                    (hs) => Vector3.Distance(policeMan.transform.position,
-                                     hs.transform.position);
-        GameObject hidingSpot = hidingSpots.Select(
-                                    ho => (distance(ho), ho)
-                                    ).Min().Item2;
-        Vector3 dir = hidingSpot.transform.position - policeMan.transform.position;
-        Ray backRay = new Ray(hidingSpot.transform.position, -dir.normalized);
-        RaycastHit info;
-        hidingSpot.GetComponent<Collider>().Raycast(backRay, out info, 50f);
+        if (!hasStolen)
+        {
+            hasStolen = true;
 
-        Seek(info.point + dir.normalized);
+            System.Func<GameObject, float> distance =
+                                    (hs) => Vector3.Distance(transform.gameObject.GetComponent<BlackBoard>().cop.transform.position,
+                                     hs.transform.position);
+            hidingSpot = hidingSpots.Select(
+                                        ho => (distance(ho), ho)
+                                        ).Min().Item2;
+            Debug.Log("Hiding behind " + hidingSpot.name);
+        }
+
+
+        Vector3 dir = hidingSpot.transform.position - transform.gameObject.GetComponent<BlackBoard>().cop.transform.position;
+
+        Vector3 finalPos = hidingSpot.transform.position + dir.normalized;
+
+        Seek(finalPos);
     }
     public void Seek(Vector3 target)
     {
         agent.destination = target;
     }
+
+    float currentTime = 0.0f;
     public void Wander()
     {
-        Vector3 localTarget;
-        Vector3 worldTarget;
-
-
-        NavMeshHit hit;
-
-        int count = 0;
-        do
+        currentTime += Time.deltaTime;
+        if (currentTime > 0.5f)
         {
-            localTarget = Random.insideUnitSphere * 5;
-            //localTarget.y = 0;
-            localTarget += new Vector3(0, 0, 3);
+            currentTime -= 0.5f;
 
-            worldTarget = transform.TransformPoint(localTarget);
-            worldTarget.y = 0f;
-            count++;
-            if (count >= 10) break;
+            Vector3 localTarget;
+            Vector3 worldTarget;
 
-        } while (!NavMesh.SamplePosition(worldTarget, out hit, 1.0f, NavMesh.AllAreas));
 
-        agent.destination = worldTarget;
+            NavMeshHit hit;
+
+            int count = 0;
+            do
+            {
+                localTarget = Random.insideUnitSphere * 5;
+                //localTarget.y = 0;
+                localTarget += new Vector3(0, 0, 3);
+
+                worldTarget = transform.TransformPoint(localTarget);
+                worldTarget.y = 0f;
+                count++;
+                if (count >= 10) break;
+
+            } while (!NavMesh.SamplePosition(worldTarget, out hit, 1.0f, NavMesh.AllAreas));
+
+            agent.destination = worldTarget;
+        }
     }
 }

@@ -11,7 +11,7 @@ public class Approaching : StateMachineBehaviour
     {
         moves = animator.GetComponent<Moves>();
         blackboard = animator.GetComponent<BlackBoard>();
-        animator.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 2f;
+        animator.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 3.5f;
         moves.Seek(blackboard.treasure.transform.position);
     }
 
@@ -26,7 +26,7 @@ public class Approaching : StateMachineBehaviour
         else
             if (Vector3.Distance(blackboard.cop.position, blackboard.treasure.transform.position) < blackboard.dist2Steal)
         {
-            animator.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 1f;
+            animator.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 1.5f;
             animator.SetTrigger("near");
         };
     }
