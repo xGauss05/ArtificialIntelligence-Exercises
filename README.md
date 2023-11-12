@@ -37,5 +37,5 @@ Reproduce the robber behaviour in video of slide 9 of "Decision Making" with Fin
 - Option 1: use delegates 
 - Option 2: use the Unity's animation
 
-### Behavior Bricks -[Video]()
+### Behavior Bricks -[Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/BehaviourBlocks.mp4)
 Reproduce the robber behaviour in video of slide 9 of "Decision Making" with Behavior Bricks asset (Behaviour Trees implementation).
