@@ -9,6 +9,7 @@ public class Moves : MonoBehaviour
     [SerializeField] GameObject[] hidingSpots;
     [SerializeField] NavMeshAgent agent;
     GameObject hidingSpot;
+    public Vector3 hidingPos;
     bool hasStolen = false;
 
 
@@ -30,9 +31,9 @@ public class Moves : MonoBehaviour
 
         Vector3 dir = hidingSpot.transform.position - transform.gameObject.GetComponent<BlackBoard>().cop.transform.position;
 
-        Vector3 finalPos = hidingSpot.transform.position + dir.normalized;
+        hidingPos = hidingSpot.transform.position + dir.normalized;
 
-        Seek(finalPos);
+        Seek(hidingPos);
     }
     public void Seek(Vector3 target)
     {
@@ -69,5 +70,26 @@ public class Moves : MonoBehaviour
 
             agent.destination = worldTarget;
         }
+    }
+
+    public void BricksHide()
+    {
+        if (!hasStolen)
+        {
+            hasStolen = true;
+
+            System.Func<GameObject, float> distance =
+                                    (hs) => Vector3.Distance(GameObject.Find("Policeman").transform.position,
+                                     hs.transform.position);
+            hidingSpot = hidingSpots.Select(
+                                        ho => (distance(ho), ho)
+                                        ).Min().Item2;
+            Debug.Log("Hiding behind " + hidingSpot.name);
+        }
+
+
+        Vector3 dir = hidingSpot.transform.position - GameObject.Find("Policeman").transform.position;
+
+        hidingPos = hidingSpot.transform.position + dir.normalized;
     }
 }
