@@ -37,5 +37,8 @@ Reproduce the robber behaviour in video of slide 9 of "Decision Making" with Fin
 - Option 1: use delegates 
 - Option 2: use the Unity's animation
 
-### Behavior Bricks -[Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/BehaviourBlocks.mp4)
+### Behavior Bricks - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/BehaviourBlocks.mp4)
 Reproduce the robber behaviour in video of slide 9 of "Decision Making" with Behavior Bricks asset (Behaviour Trees implementation).
+
+### Roller Ball (ML Agents) - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/MLAgents.mp4)
+Follow the tutorial [Making a New Learning Envionment](https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Learning-Environment-Create-New.md) from MLAgents.
