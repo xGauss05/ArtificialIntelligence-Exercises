@@ -43,6 +43,6 @@ Reproduce the robber behaviour in video of slide 9 of "Decision Making" with Beh
 ### Roller Ball (ML Agents) - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/MLAgents.mp4)
 Follow the tutorial [Making a New Learning Envionment](https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Learning-Environment-Create-New.md) from MLAgents.
 
-### Formation Mation - [Video]()
+### Formation Motion - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/FormationMotion.mp4)
 Reproduce the "Formation Motion" example in video of slide 6 of "Strategy & Tactics".
 ![image](https://github.com/xGauss05/ArtificialIntelligence-Exercises/assets/57706173/13419772-5b83-4dcf-93a0-e19ac9c02f2f)
