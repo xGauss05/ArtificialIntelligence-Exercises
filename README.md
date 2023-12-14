@@ -46,3 +46,8 @@ Follow the tutorial [Making a New Learning Envionment](https://github.com/Unity-
 ### Formation Motion - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/FormationMotion.mp4)
 Reproduce the "Formation Motion" example in video of slide 6 of "Strategy & Tactics".
 ![image](https://github.com/xGauss05/ArtificialIntelligence-Exercises/assets/57706173/13419772-5b83-4dcf-93a0-e19ac9c02f2f)
+
+## Tactical Behavior Tree - [Video](https://github.com/xGauss05/ArtificialIntelligence-Exercises/blob/main/Assets/Project/Videos/TacticalBehaviorTree.mp4)
+Reproduce the behavior of the cops in video of slide 11 of "Strategy & Tactics" with the Behavior Bricks Asset.
+![image](https://github.com/xGauss05/ArtificialIntelligence-Exercises/assets/57706173/76461973-5847-4fc0-98e2-01caddcac90c)
+
