@@ -1,5 +1,6 @@
 # Artificial Intelligence Exercises
 Repository [link](https://github.com/xGauss05/ArtificialIntelligence-Exercises)
+Final project [link](https://github.com/Ethanm-0371/AI_Final_Project)
 
 ## Authors 
 + Jonathan Cacay Llanes - [xGauss05](https://github.com/xGauss05)
